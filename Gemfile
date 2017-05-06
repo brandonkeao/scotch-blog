@@ -39,6 +39,9 @@ gem 'bootstrap-sass', '~> 3.3'
 #add gem for CKeditor
 gem 'ckeditor', '~> 4.1'
 
+#add gem for Devise
+gem 'devise', '~> 4.2.1'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
