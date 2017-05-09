@@ -22,6 +22,13 @@
   	  <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
     </div>
 
+    <!-- Field for image upload -->
+    <div class="form-group">
+      <%= f.label :avatar do %><br />
+        <% f.file_field :avatar, class: "form-control" %>
+        <% f.hidden_field :avatar_cache %>
+      <% end %>
+    </div>
 
     <%= f.submit "Sign up", class: "btn btn-primary btn-lg" %>
   <% end %>
