@@ -4,3 +4,5 @@ class Post < ApplicationRecord
 	#This validates presens of body
 	validates :body, presence: true
 end
+
+
