@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 	# There may be a bug here... I think delete should be destroy
-	before_action :find_post, only: [:edit, :update, :show, :delete]
+	before_action :find_post, only: [:edit, :update, :show, :destroy]
 	#This authenticates admin whenever a post is to be created, updated, or destoryed 
 	before_action :authenticate_admin!, except: [:index, :show]
 
@@ -16,8 +16,8 @@ class PostsController < ApplicationController
 
 	# Create action saves the post into database
 	def create
-		@post = Post.new
-		if @post.save(post_params)
+		@post = Post.new(post_params)
+		if @post.save
 			flash[:notice] = "Successfully created post!"
 			redirect_to post_path(@post)
 		else
@@ -32,9 +32,10 @@ class PostsController < ApplicationController
 
 	# Update action updates the post with the new information
 	def update
+		@post = Post.find(params[:id])
 		if @post.update_attributes(post_params)
 			flash[:notice] = "Successfully updated post!"
-			redirect_to post_path(@posts)
+			redirect_to post_path
 		else
 			flash[:alert] = "Error updating post!"
 			render :edit
@@ -47,6 +48,7 @@ class PostsController < ApplicationController
 
 	# The destroy action removed the post permanently from the database
 	def destroy
+		@post = Post.find(params[:id])
 		if @post.destroy
 			flash[:notice] = "Successfully deleted post!"
 			redirect_to posts_path

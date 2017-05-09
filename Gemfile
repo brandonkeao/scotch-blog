@@ -42,6 +42,12 @@ gem 'ckeditor', '~> 4.1'
 #add gem for Devise
 gem 'devise', '~> 4.2.1'
 
+#add gem carrierwave
+gem 'carrierwave'
+
+#add gem mini_magick
+gem 'mini_magick'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
