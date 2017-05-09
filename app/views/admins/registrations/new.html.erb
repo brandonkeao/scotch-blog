@@ -25,8 +25,8 @@
     <!-- Field for image upload -->
     <div class="form-group">
       <%= f.label :avatar do %><br />
-        <% f.file_field :avatar, class: "form-control" %>
-        <% f.hidden_field :avatar_cache %>
+        <%= f.file_field :avatar, class: "form-control" %>
+        <%= f.hidden_field :avatar_cache %>
       <% end %>
     </div>
 
